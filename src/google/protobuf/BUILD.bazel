@@ -168,6 +168,7 @@ proto_library(
 
 cc_library(
     name = "port_def",
+    srcs = ["port.cc"],
     hdrs = [
         "port.h",
         "port_def.inc",
@@ -180,6 +181,16 @@ cc_library(
     ],
     deps = [
         "@com_google_absl//absl/meta:type_traits",
+    ],
+)
+
+cc_test(
+    name = "port_test",
+    srcs = ["port_test.cc"],
+    deps = [
+        ":port",
+        "@com_google_googletest//:gtest",
+        "@com_google_googletest//:gtest_main",
     ],
 )
 
